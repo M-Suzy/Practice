@@ -17,17 +17,11 @@ public class Thread_task1 {
             public void run() {
                 synchronized (this) {
                     for (int i = 0; i < 10; i++) {
-                        increment();
                         signal  = true;
+                        increment();
                     }
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    System.out.println(Thread.currentThread().getName() + " " + count);
                     signal = false;
-                    System.out.println(Thread.currentThread().getId() + " " + count);
-                    notify();
                 }
             }
 
@@ -45,17 +39,10 @@ public class Thread_task1 {
                     }
                     for (int i = 0; i < 10; i++) {
                         decrement();
-                        //signal = true;
-                        //System.out.println(Thread.currentThread().getId() + " " + count);
                     }
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    signal = false;
-                    System.out.println(Thread.currentThread().getId() + " " + count);
-                    //notify();
+                    //signal = false;
+                    System.out.println(Thread.currentThread().getName() + " " + count);
+                    notify();
                 }
             }
 
