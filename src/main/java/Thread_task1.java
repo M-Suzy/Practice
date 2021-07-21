@@ -1,4 +1,3 @@
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class Thread_task1 {
     public static volatile int count = 0;
